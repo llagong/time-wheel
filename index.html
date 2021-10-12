@@ -153,10 +153,13 @@
       .text((d) => {
         const angle = (d / DIVISIONS.length) * 360;
 
-        if (angle > 180) {
-          return 360 - angle + '°';
-        } else {
+        if (angle % 180 === 0) {
           return angle + '°';
+        }
+        if (angle > 180) {
+          return 360 - angle + '° E';
+        } else {
+          return angle + '° W';
         }
       });
 
